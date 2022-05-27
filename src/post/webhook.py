@@ -25,7 +25,7 @@ async def verify(request:Request):
                     return Response(content='verify token requerido ', status_code=403)
         except:
             print('NO VERIFY')
-            return Response(content='verify token requerido fordez', status_code=403)        
+            return Response(content='verify token requerido fordez y lucy', status_code=403)        
 
 @api.post('/webhook')
 def data(response:DataRequest):
