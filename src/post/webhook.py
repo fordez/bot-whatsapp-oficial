@@ -1,3 +1,4 @@
+from urllib import response
 from fastapi import APIRouter, Request, Response
 from typing import Any, List
 from pydantic import BaseModel
@@ -19,9 +20,9 @@ async def verify(request:Request):
             if request.query_params['hub.mode'] and request.query_params['hub.verify_token']:
                 if request.query_params['hub.mode'] == 'subscribe' and request.query_params['hub.verify_token'] == VERYFY_TOKEN:
                     print('WEBHOOK_VERIFIED')
-                    return Response(content=request.query_params['hub.challenge'], status_code=200)
+                    return  Response(content=request.query_params['hub.challenge'], status_code=200)
                 else:
-                    return Response(content='verify token requerido', status_code=403)
+                    return Response(content='verify token requerido ', status_code=403)
         except:
             print('NO VERIFY')
             return Response(content='verify token requerido', status_code=403)        

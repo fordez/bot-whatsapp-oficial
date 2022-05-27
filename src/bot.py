@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from post.webhook import api
+from src.post.webhook import api
 
 bot = FastAPI()
 
