@@ -1,0 +1,31 @@
+object ='whatsapp_business_account'
+{
+    entry = [{
+        'id': '109320848457217',
+        'changes': [{
+            'value': {
+                'messaging_product': 'whatsapp', 
+                'metadata': {
+                    'display_phone_number': '15550389830', 
+                    'phone_number_id': '113727284679483'}, 
+                    'contacts': [{
+                        'profile': {
+                            'name': 'fernando'
+                        },
+                        'wa_id': '573004123821'
+                    }], 
+                        'messages': [{
+                            'from': '573004123821',
+                            'id': 'wamid.HBgMNTczMDA0MTIzODIxFQIAEhggQUZDRjVCQTc4MDc3RThCMUE1REM2MDgzNEE0NkQwN0YA', 
+                            'timestamp': '1656103566', 
+                            'text': {
+                                'body': 'Fer'
+                            }, 
+                            'type': 'text'
+                       }]
+                    }, 
+                    'field': 'messages'
+                }]
+            }] 
+
+}
