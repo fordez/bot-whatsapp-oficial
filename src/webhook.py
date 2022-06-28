@@ -1,11 +1,13 @@
 from fastapi import APIRouter, Request, Response
 from typing import Any, List
 from pydantic import BaseModel
+from src.dialogflowNlp import sendDialogflow
+import uuid
 
 api = APIRouter()
 
 VERYFY_TOKEN = 'fordez'
-
+SESSION_ID = uuid.uuid4()
 
 
 
@@ -28,19 +30,20 @@ async def verify(request:Request):
 
 @api.post('/webhook')
 def data(request:DataRequest):
-
+    name_contacts = request.entry[0]["changes"][0]["value"]["contacts"][0]["profile"]["name"]
     number_contacts = request.entry[0]["changes"][0]["value"]["messages"][0]["from"]
     message_id = request.entry[0]["changes"][0]["value"]["messages"][0]["id"]
     type_query = request.entry[0]["changes"][0]["value"]["messages"][0]["type"]
-    print(request.entry)
-    print(number_contacts, message_id, type_query )
+    print(name_contacts, number_contacts, message_id, type_query )
     
     type_q = type_query
 
     match type_q:
-        case "text": 
+        case "text":
             query = request.entry[0]["changes"][0]["value"]["messages"][0]["text"]["body"]
             print(query)
+            nlp = sendDialogflow(query,123456)
+            print(nlp)
         case "image":
             image_id = request.entry[0]["changes"][0]["value"]["messages"][0]["image"]["id"]
             print(image_id)
@@ -56,5 +59,6 @@ def data(request:DataRequest):
         case "location":
             latitude = request.entry[0]["changes"][0]["value"]["messages"][0]["location"]["latitude"]
             longitude = request.entry[0]["changes"][0]["value"]["messages"][0]["location"]["longitude"]
-            print(latitude, longitude)       
+            print(latitude, longitude)  
+                 
     return Response("ok", status_code=200)
