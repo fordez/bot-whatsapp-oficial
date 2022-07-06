@@ -2,11 +2,11 @@ import json
 import requests
 
 
-async def resonseText(number_contact, query_text):
+async def resonseText(number_contact, answer):
         url = "https://graph.facebook.com/v13.0/113727284679483/messages"
 
         headers = {
-            "Authorization":"Bearer EAAP9zDM8H2ABAP9cKwqd6GJEuJf516I221CU3kVB95BHAcU2Tx84iMIJ71B5r6fG02CGFJG0e01I0ZBlsE0Thh1UpWQnHN1ZBciGzG0Uew5lsZCmaSDs6EwOZCvor6eklJZBMvb7RGOPYmSRRtOyrkO69wBayUuhKArxZBghkhljISEqppxN3OrbOj0RkDqxaQDM6AjztL6AZDZD",
+            "Authorization":"Bearer EAAP9zDM8H2ABANPuhrM3m4O0oWdyAGZB6juKw9VD2qU4JUlAJhhlKXrHs9mGuMDcswDbdRcKdzYiUjKAdun6UQBx1hcoca1nfOZCFQAZBDHZADnZBRQWBLznYSeqd82yl1HjKLdSWz3KZCF2hoDNrduZC7E790noKv2R1Fv6ZBpGVxbyBcLjbtZCGxxZCrwVeWy7zOjQesslWeywZDZD",
             "Content-Type": "application/json"
         }
 
@@ -16,7 +16,7 @@ async def resonseText(number_contact, query_text):
             "to": number_contact,
             "type": "text",
             "text": {
-                "body": query_text
+                "body": answer
             }
         }
 

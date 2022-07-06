@@ -1,4 +1,6 @@
 from src.dialogflowNlp import sendDialogflow
+from src.gpt3 import gpt3
+from src.reply import resonseText
 
 async def payloadWhatsapp(data):
     try:
@@ -13,7 +15,10 @@ async def payloadWhatsapp(data):
         match type_q:
             case "text":
                 query = data["changes"][0]["value"]["messages"][0]["text"]["body"]
-                await sendDialogflow(number_contacts, query, 123456)
+                nlp = await sendDialogflow(number_contacts, query, 123456)
+                #nlp = await gpt3(query)
+                await resonseText(number_contacts, nlp["answer"])
+                
             case "image":
                 image_id = data["changes"][0]["value"]["messages"][0]["image"]["id"]
                 print(image_id)
@@ -32,3 +37,9 @@ async def payloadWhatsapp(data):
                 print(latitude, longitude)
     except:
         print("Status OK")
+
+async def payloadDialogflow(data):
+        try:
+            print(data)
+        except:
+            print("Status OK")
