@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from src.webhook import api
+from src.apirest import api
 
 bot = FastAPI()
 

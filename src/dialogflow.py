@@ -6,7 +6,7 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'keysbot.json'
 PROJECT_ID = "storied-reserve-350000"
 LANGUAGE_CODE = "es"
 
-async def sendDialogflow(number_contacts,text,SESSION_ID):
+async def sendDialogflow(text,SESSION_ID):
  
         session_client = dialogflow.SessionsClient()
         session = session_client.session_path(PROJECT_ID, SESSION_ID)
@@ -16,11 +16,7 @@ async def sendDialogflow(number_contacts,text,SESSION_ID):
         intent = response.query_result.intent.display_name
         query = response.query_result.query_text
         answer = response.query_result.fulfillment_text
-
-        #print(response.query_result.parameters)
-        for params in response.query_result.parameters:
-            print(params)
-        #print(response.query_result)
+        
         return {
             "intent": intent,
             "query": query,

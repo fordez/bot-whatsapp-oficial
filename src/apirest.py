@@ -1,20 +1,11 @@
 from fastapi import APIRouter, Request, Response
-from typing import Any, List
-from pydantic import BaseModel
-from requests import request
-from src.payload import payloadWhatsapp, payloadDialogflow
-
+from src.match import matchWhatsapp, matchDialogflow
+from src.models import WebhookWhatsapp, FulfillmentDialogflow
 
 api = APIRouter()
 
 VERYFY_TOKEN = 'fordez'
 
-class DataWhatsapp(BaseModel):
-    entry: List = []
-
-class DataDialogflow(BaseModel):
-    queryResult: object
-    
 
 @api.get('/webhook')
 async def verify(request:Request):
@@ -30,11 +21,11 @@ async def verify(request:Request):
             return Response(content='verify token requerido fordez y lucy', status_code=403)        
 
 @api.post('/webhook')
-async def receive(data:DataWhatsapp):
-    await payloadWhatsapp(data.entry[0])
+async def receiveData(data:WebhookWhatsapp):
+    await matchWhatsapp(data)
     return Response("ok", status_code=200)
 
 @api.post('/fulfillment-dialogflow')
-async def receive(data:DataDialogflow):
-        await payloadDialogflow(data.queryResult)
-        return Response("ok", status_code=200)
+async def receiveData(data:FulfillmentDialogflow):
+    await matchDialogflow(data)
+    return Response("ok", status_code=200)

@@ -6,7 +6,7 @@ async def resonseText(number_contact, answer):
         url = "https://graph.facebook.com/v13.0/113727284679483/messages"
 
         headers = {
-            "Authorization":"Bearer EAAP9zDM8H2ABANPuhrM3m4O0oWdyAGZB6juKw9VD2qU4JUlAJhhlKXrHs9mGuMDcswDbdRcKdzYiUjKAdun6UQBx1hcoca1nfOZCFQAZBDHZADnZBRQWBLznYSeqd82yl1HjKLdSWz3KZCF2hoDNrduZC7E790noKv2R1Fv6ZBpGVxbyBcLjbtZCGxxZCrwVeWy7zOjQesslWeywZDZD",
+            "Authorization":"Bearer EAAP9zDM8H2ABAPrZAgSS2GIRTbRk4a0S9stIJZAmQRSDUzMI7DLSu9AdS8z6Q8ZAzj1QDURJH2Ue2m9lZA93R9a0gdIOoltg5tZBBvVHOGyUUyLFdUCxVXFEcZBgQ8Deaa1fgryKZAmrhFE8wRmYLVjxz5e2wZBZBsxhM6GQDZB9dKcDwosHocj7CHtZBUBpsh4EU13bKehxmoU0AZDZD",
             "Content-Type": "application/json"
         }
 
