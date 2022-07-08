@@ -2,11 +2,11 @@ import json
 import requests
 
 
-async def resonseText(number_contact, answer):
+def resonseText(number_contact, answer):
         url = "https://graph.facebook.com/v13.0/113727284679483/messages"
 
         headers = {
-            "Authorization":"Bearer EAAP9zDM8H2ABAPrZAgSS2GIRTbRk4a0S9stIJZAmQRSDUzMI7DLSu9AdS8z6Q8ZAzj1QDURJH2Ue2m9lZA93R9a0gdIOoltg5tZBBvVHOGyUUyLFdUCxVXFEcZBgQ8Deaa1fgryKZAmrhFE8wRmYLVjxz5e2wZBZBsxhM6GQDZB9dKcDwosHocj7CHtZBUBpsh4EU13bKehxmoU0AZDZD",
+            "Authorization":"Bearer EAAP9zDM8H2ABADZAYLuSK5cZBzZCbu3XB4MWKcpic9RgqeJqPnQemlN29wVVPAymMdlWbV0pD9t1Tehpfb4L8fo54LZAZCPG7fP9oM8V5ec4PCXp2CmsfX3bJ1w4vq4rn7AqxRCe9ev51LdlILeznbPqWNdX4JIxKj3N8u8G57ZAo2XVaGn763TuOZCR4dkKIJGnXhVkansngZDZD",
             "Content-Type": "application/json"
         }
 
@@ -24,7 +24,7 @@ async def resonseText(number_contact, answer):
         print(response.text)
 
 
-async def obtenerMedios():
+def obtenerMedios():
         url = "https://graph.facebook.com/v13.0/880415832922268"
 
         headers = {
@@ -35,7 +35,7 @@ async def obtenerMedios():
         print(response.text)
 
 
-async def descargarMedios():
+def descargarMedios():
 
     url = "https://lookaside.fbsbx.com/whatsapp_business/attachments/?mid=880415832922268&ext=1655924959&hash=ATvXU8m0Dxu3SWrrpeBFameRIn-1FTA44LCSTNzko4C5zA"
 

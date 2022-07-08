@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Request, Response
-from src.match import matchWhatsapp, matchDialogflow
+from src.handlers import dataWhatsapp, dataDialogflow
 from src.models import WebhookWhatsapp, FulfillmentDialogflow
 
 api = APIRouter()
@@ -21,11 +21,11 @@ async def verify(request:Request):
             return Response(content='verify token requerido fordez y lucy', status_code=403)        
 
 @api.post('/webhook')
-async def receiveData(data:WebhookWhatsapp):
-    await matchWhatsapp(data)
+def receiveData(data:WebhookWhatsapp):
+    dataWhatsapp(data)
     return Response("ok", status_code=200)
 
 @api.post('/fulfillment-dialogflow')
-async def receiveData(data:FulfillmentDialogflow):
-    await matchDialogflow(data)
+def receiveData(data:FulfillmentDialogflow):
+    dataDialogflow(data)
     return Response("ok", status_code=200)
